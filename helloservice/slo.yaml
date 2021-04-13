@@ -21,6 +21,7 @@ objectives:
     pass:
       - criteria:
           - "<=100"
+  - sli: response_time_p95
 total_score:
   pass: "90%"
   warning: "75%"
