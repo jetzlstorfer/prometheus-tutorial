@@ -6,3 +6,5 @@ indicators:
   http_requests_total_sucess: http_requests_total{status="success"}
   go_routines: go_goroutines{job="$SERVICE-$PROJECT-$STAGE"}
   request_throughput: sum(rate(http_requests_total{status="success"}[$DURATION_SECONDS]))
+  response_time_p95: histogram_quantile(0.95, sum(rate(http_server_request_duration_seconds_bucket{job="$SERVICE-$PROJECT-$STAGE"}[$DURATION_SECONDS])) by (le))
+  
